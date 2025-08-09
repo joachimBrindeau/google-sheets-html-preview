@@ -1,0 +1,65 @@
+{
+  "manifest_version": 3,
+  "name": "Pell HTML Editor for Google Sheets",
+  "version": "1.0.0",
+  "description": "A lean Chrome extension with Pell WYSIWYG editor for HTML preview and editing, integrated with Google Sheets cell detection",
+
+  "permissions": [
+    "storage",
+    "sidePanel",
+    "tabs"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://docs.google.com/spreadsheets/*"
+      ],
+      "js": [
+        "content-script.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  
+  "action": {
+    "default_title": "Open Pell HTML Editor"
+  },
+  
+  "commands": {
+    "save-content": {
+      "suggested_key": {
+        "default": "Ctrl+S"
+      },
+      "description": "Save current content"
+    },
+    "reset-content": {
+      "suggested_key": {
+        "default": "Ctrl+R"
+      },
+      "description": "Reset to saved content"
+    },
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      },
+      "description": "Open side panel"
+    }
+  },
+  
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "pell-html-editor-extension",
+  "version": "1.0.0",
+  "description": "A lean Chrome extension with Pell WYSIWYG editor for HTML preview and editing",
+  "main": "src/background.js",
+  "scripts": {
+    "dev": "npm run build && npm run watch",
+    "build": "node scripts/build.js",
+    "watch": "node scripts/watch.js",
+    "clean": "rm -rf dist",
+    "validate": "node scripts/validate.js",
+    "package": "npm run build && npm run validate && cd dist && zip -r ../extension.zip .",
+    "test": "npm run validate"
+  },
+  "keywords": [
+    "chrome-extension",
+    "html-editor",
+    "wysiwyg",
+    "pell",
+    "side-panel"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "chokidar": "^3.5.3",
+    "fs-extra": "^11.1.1"
+  },
+  "dependencies": {
+    "pell": "^1.0.6"
+  }
+}

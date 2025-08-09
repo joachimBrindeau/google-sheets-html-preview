@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pell HTML Editor</title>
+    <link rel="stylesheet" href="lib/pell/dist/pell.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="header__title">HTML Editor for Sheets</h1>
+            <div class="header__actions">
+                <button id="load-cell-btn" class="btn btn--secondary" title="Load Selected Cell">
+                    <span class="btn__icon">📊</span>
+                    <span class="btn__text">Load Cell</span>
+                </button>
+                <button id="save-btn" class="btn btn--primary" title="Save (Ctrl+S)">
+                    <span class="btn__icon">💾</span>
+                    <span class="btn__text">Save</span>
+                </button>
+                <button id="reset-btn" class="btn btn--secondary" title="Reset (Ctrl+R)">
+                    <span class="btn__icon">🔄</span>
+                    <span class="btn__text">Reset</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Google Sheets Integration Info -->
+        <div class="sheets-info" id="sheets-info">
+            <div class="sheets-info__content">
+                <span class="sheets-info__label">Selected Cell:</span>
+                <span class="sheets-info__cell" id="current-cell">None</span>
+                <span class="sheets-info__content-preview" id="cell-content-preview"></span>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Editor Section -->
+            <section class="editor-section">
+                <div class="section-header">
+                    <h2 class="section-title">Editor</h2>
+                    <div class="status-indicator" id="status-indicator">
+                        <span class="status-dot"></span>
+                        <span class="status-text" id="status-text">Ready</span>
+                    </div>
+                </div>
+                <div class="editor-container">
+                    <div id="editor" class="editor"></div>
+                </div>
+            </section>
+
+            <!-- Preview Section -->
+            <section class="preview-section">
+                <div class="section-header">
+                    <h2 class="section-title">Preview</h2>
+                    <button id="toggle-preview" class="btn btn--ghost btn--small">
+                        <span class="btn__text">Toggle</span>
+                    </button>
+                </div>
+                <div class="preview-container">
+                    <iframe id="preview" class="preview-frame" sandbox="allow-same-origin"></iframe>
+                </div>
+            </section>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="loading-overlay">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Loading editor...</p>
+        </div>
+
+        <!-- Toast Notifications -->
+        <div id="toast-container" class="toast-container"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="lib/pell/dist/pell.min.js"></script>
+    <script src="utils/storage.js"></script>
+    <script src="utils/toast.js"></script>
+    <script src="components/editor.js"></script>
+    <script src="components/preview.js"></script>
+    <script src="sidepanel.js"></script>
+</body>
+</html>
